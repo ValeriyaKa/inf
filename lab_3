@@ -1,0 +1,36 @@
+import re
+
+print('--------------------------------------------\nЗАДАНИЕ 1\n--------------------------------------------\n')
+test_1 = ':-/;*:--/:-/;^/'
+print(len(re.findall(":-/", test_1)))
+test_2 = ':-/;*:--/:-/;^/:-(;^):-/:-/'
+print(len(re.findall(":-/", test_2)))
+test_3 = ':-/;*:--;-(8-:-/{/:-/;^/:-(;^):-/:-/:-:-X<);-/'
+print(len(re.findall(":-/", test_3)))
+test_4 = ':-/;*:--/:-/;^/:-(;^):-/8-:-/{/8-:-/{/-/:/;-/;/8<'
+print(len(re.findall(":-/", test_4)))
+test_5 = ':-/;*:--/:-/;^/:-(;^):-/8-:-/{/8-:-/{/-/:/;-/;/8<:[<;<}:-|=>):-/=<{O:-/'
+print(len(re.findall(":-/", test_5)))
+
+# test_2
+
+print('--------------------------------------------\nЗАДАНИЕ 2\n--------------------------------------------\n')
+Post = "Уважаемые студенты! В эту субботу в 15:00 планируется доп. занятие на 2 часа. То есть в 17:00:01 оно уже точно кончится."
+NewPost = re.sub(r'\d\d:\d\d:\d\d', '(TAB)', Post)
+NewNewPost = re.sub(r'\d\d:\d\d', '(TAB)', NewPost)
+print(NewNewPost)
+
+# test_3
+
+print('--------------------------------------------\nЗАДАНИЕ 3\n--------------------------------------------\n')
+string_1 = 'lera.0808.lera@gmail.com lera.0808.lera@mail Bertc@yandex.ru'
+restring_1 = string_1
+emails = restring_1.split(" ")
+for i in range(0, len(emails)):
+    a=emails[i]
+    newemails=re.findall(r'@\w+\.\w+', a)
+    if (len(newemails)==0):
+        print("Fail!")
+    else:
+        print(*newemails)
+
